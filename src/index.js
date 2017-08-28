@@ -146,8 +146,8 @@ export default class DraggableList extends React.Component {
     if (document.documentElement) document.documentElement.style.cursor = 'move';
     window.addEventListener('mouseup', this._handleMouseUp);
     window.addEventListener('touchend', this._handleMouseUp);
-    window.addEventListener('touchmove', this._handleTouchMove);
-    window.addEventListener('mousemove', this._handleMouseMove);
+    window.addEventListener('touchmove', this._handleTouchMove, { passive: false });
+    window.addEventListener('mousemove', this._handleMouseMove, { passive: false });
 
     // If an element has focus while we drag around the parent, some browsers
     // try to scroll the parent element to keep the focused element in view.
